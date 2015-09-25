@@ -1,0 +1,6 @@
+1443193744654	Rename package 'org.bitsteam.helloLiberty'
+1443204191545	Promote methods from bean class class MessageSender [in [Working copy] MessageSender.java [in org.bitsteam.ejb.messaging [in ejbModule [in HelloLiberty]]]]
+  MessageSender()
+  void sendMessage(String)
+  void dropTestMessage()
+  boolean dropInQueue(String, String, String) to business interface interface MessageSenderLocal [in [Working copy] MessageSenderLocal.java [in org.bitsteam.ejb.messaging.view [in ejbModule [in HelloLibertyClient]]]]

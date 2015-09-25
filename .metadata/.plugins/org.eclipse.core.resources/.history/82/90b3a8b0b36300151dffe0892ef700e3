@@ -1,0 +1,29 @@
+package org.bitsteam.rest;
+
+import javax.naming.Context;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import org.bitsteam.ejb.messaging.view.MessageSenderLocal;
+
+
+@Path("/")
+@Stateless
+public class MessageSenderService {
+	@GET
+	@Path("dropMessage")
+	// http://localhost:9080/HelloLibertyWeb/hello/dropMessage
+	public String putQMessage() {
+		System.out.println("JAXRS - putQMessage Service called");
+		
+		try {
+			Context ctx = new InitialContext();
+			messageSender = (MessageSenderLocal) ctx.lookup("ejblocal:org.bitsteam.ejb.messaging.view.MessageSenderLocal");
+			try {
+				System.out.println("MessageSenderService: Attempting to drop message...");
+				messageSender.
+			}
+		}
+		return "Queue Message dropped";
+	}
+
+}

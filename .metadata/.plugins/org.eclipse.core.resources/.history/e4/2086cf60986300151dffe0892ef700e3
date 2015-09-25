@@ -1,0 +1,34 @@
+package org.bitsteam.ejb.messaging;
+
+import javax.ejb.Local;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import org.bitsteam.ejb.messaging.view.MessageSenderLocal;
+
+/**
+ * Session Bean implementation class MessageSender
+ * This class is called by the REST Web Service MessageSenderService to drop a message into 
+ * the local liberty queue (run by liberty messaging engine)
+ */
+@Stateless
+@Local(MessageSenderLocal.class)
+@LocalBean
+public class MessageSender implements MessageSenderLocal {
+
+    public MessageSender() {}
+    
+    public void sendMessage(String messageType){
+    	if(messageType == "TEST"){
+    		dropTestMessage();
+    	} // else if another message type...
+    }
+    
+    public void dropTestMessage() {
+    	
+    }
+    
+    public boolean dropInQueue(){
+    	
+    }
+
+}

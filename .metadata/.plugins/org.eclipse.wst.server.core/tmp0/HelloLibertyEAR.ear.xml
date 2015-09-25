@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <archive targetInArchive="/HelloLiberty.jar">
+        <dir sourceOnDisk="/Users/colbyward/Documents/dev/liberty-ejb/HelloLiberty/build/classes" targetInArchive="/"/>
+    </archive>
+    <archive targetInArchive="/HelloLibertyClient.jar">
+        <dir sourceOnDisk="/Users/colbyward/Documents/dev/liberty-ejb/HelloLibertyClient/build/classes" targetInArchive="/"/>
+    </archive>
+    <archive targetInArchive="/HelloLibertyWeb.war">
+        <dir sourceOnDisk="/Users/colbyward/Documents/dev/liberty-ejb/HelloLibertyWeb/WebContent" targetInArchive="/"/>
+    </archive>
+    <dir sourceOnDisk="/Users/colbyward/Documents/dev/liberty-ejb/HelloLibertyEAR" targetInArchive="/"/>
+</archive>

@@ -1,0 +1,7 @@
+package org.bitsteam.helloLiberty;
+
+import javax.ws.rs.core.Application;
+
+public class HelloLibertyApplication extends Application {
+
+}

@@ -1,0 +1,23 @@
+package org.bitsteam.ejb.messaging;
+
+import javax.ejb.Local;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import org.bitsteam.ejb.messaging.view.MessageSenderLocal;
+
+/**
+ * Session Bean implementation class MessageSender
+ */
+@Stateless
+@Local(MessageSenderLocal.class)
+@LocalBean
+public class MessageSender implements MessageSenderLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public MessageSender() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

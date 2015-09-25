@@ -1,0 +1,8 @@
+build/
+classes/
+*/build/*
+*/build/**
+*.keep
+*.keep.*
+*.class
+*.dmp
