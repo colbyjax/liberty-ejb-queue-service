@@ -6,3 +6,4 @@ classes/
 *.keep.*
 *.class
 *.dmp
+*.meta*

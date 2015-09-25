@@ -1,7 +1,0 @@
-package org.bitsteam.ejb.messaging.view;
-
-public interface MessageSenderLocal {
-
-	void sendMessage(String messageType);
-
-}
