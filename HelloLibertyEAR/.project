@@ -3,9 +3,9 @@
 	<name>HelloLibertyEAR</name>
 	<comment></comment>
 	<projects>
-		<project>HelloLiberty</project>
 		<project>HelloLibertyClient</project>
 		<project>HelloLibertyWeb</project>
+		<project>HelloLiberty</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

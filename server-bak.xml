@@ -10,6 +10,7 @@
 	    <feature>localConnector-1.0</feature>
     	<feature>jaxrs-2.0</feature>
 	</featureManager>
+    <wasJmsEndpoint id="InboundJmsCommsEndpoint" host="*" wasJmsPort="7276" wasJmsSSLPort="7286" />
 
 	<!-- This template enables security. To get the full use of all the capabilities, a keystore and user registry are required. -->
 	
@@ -44,6 +45,10 @@
     	<queue forceReliability="ReliablePersistent" id="libertyQ"/>
     </messagingEngine>
     <jmsQueueConnectionFactory jndiName="jms/libertyQCF" id="jms/libertyQCF">
+         <!-- Remote Queue -->
+         <!-- <properties.wasJms remoteServerAddress="192.168.1.5:7276:BootstrapBasicMessaging" /> -->
+         
+         <!-- Local Queue -->
 	     <properties.wasJms nonPersistentMapping="ExpressNonPersistent" persistentMapping="ReliablePersistent"/> 
     </jmsQueueConnectionFactory>
     <jmsQueue id="jms/libertyQue" jndiName="jms/libertyQue">
