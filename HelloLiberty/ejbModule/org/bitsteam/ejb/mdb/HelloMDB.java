@@ -2,6 +2,7 @@ package org.bitsteam.ejb.mdb;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -15,10 +16,10 @@ import javax.jms.TextMessage;
  */
 @MessageDriven(
 		activationConfig = { @ActivationConfigProperty(
-				propertyName = "destination", propertyValue = "jms/libertyQue"), @ActivationConfigProperty(
+				propertyName = "destination", propertyValue = "jms/aeiQue"), @ActivationConfigProperty(
 				propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 		}, 
-		mappedName = "jms/libertyQue")
+		mappedName = "jms/aeiQue")
 public class HelloMDB implements MessageListener {
 
     public HelloMDB() {}
@@ -29,12 +30,23 @@ public class HelloMDB implements MessageListener {
     public void onMessage(Message message) {
        System.out.println("[HelloMDB] - Message Received!");
        
-       TextMessage textMessage = (TextMessage) message;
-       
-       try{
-    	   handleMessage(textMessage);
-       } catch (Exception e) {
-    	   System.out.println("[HelloMDB] - Exception thrown while handling message: " + e.getMessage());
+       // What type of message is it?
+       if(message instanceof TextMessage) {
+    	   TextMessage textMessage = (TextMessage) message;
+           try{
+        	   handleTextMessage(textMessage);
+           } catch (Exception e) {
+        	   System.out.println("[HelloMDB] - Exception thrown while handling message: " + e.getMessage());
+           }
+       } else if (message instanceof BytesMessage) {
+    	   BytesMessage bm=(BytesMessage)message;
+	       	       
+    	   try{
+        	   handleBytesMessage(bm);
+           } catch (Exception e) {
+        	   System.out.println("[HelloMDB] - Exception thrown while handling message: " + e.getMessage());
+           }
+
        }
         
     }
@@ -45,11 +57,17 @@ public class HelloMDB implements MessageListener {
      * @param textMessage
      * @throws JMSException
      */
-    public void handleMessage(TextMessage textMessage) throws JMSException {
+    public void handleTextMessage(TextMessage textMessage) throws JMSException {
     	if(textMessage.getText() != null) {
     		String messageText = textMessage.getText().trim();
     		System.out.println("[HelloMDB] - Message Text: " + messageText);
     	}
+    }
+    
+    public void handleBytesMessage(BytesMessage byteMessage) throws JMSException {
+    	byte data[]=new byte[(int)byteMessage.getBodyLength()];
+    	String msg = byteMessage.readUTF();
+	    System.out.println(msg);
     }
 
 }
