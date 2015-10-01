@@ -5,11 +5,11 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="HelloLibertyWeb.war" deploy-path="/" handle="module:/resource/HelloLibertyWeb/HelloLibertyWeb">
-            <dependent-object>Module_1443318022505</dependent-object>
+            <dependent-object>Module_1443537417486</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="HelloLiberty.jar" deploy-path="/" handle="module:/resource/HelloLiberty/HelloLiberty">
-            <dependent-object>Module_1443318022511</dependent-object>
+            <dependent-object>Module_1443537417508</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
